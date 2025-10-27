@@ -1,0 +1,29 @@
+name: Run Python Script Every 15 Minutes
+
+on:
+  schedule:
+    # Runs every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies (if needed)
+      run: |
+        python -m pip install --upgrade pip
+        # If you have a requirements.txt file, uncomment the next line:
+        # pip install -r requirements.txt
+    
+    - name: Run Python script
+      run: python Monitor_de_stocks.py
