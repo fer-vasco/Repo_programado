@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 from datetime import datetime, timedelta
 import os
+from dotenv import load_dotenv
 
 
 def consultar_valores_actuales(API_KEY, monedas, url_template, now):
@@ -28,6 +29,7 @@ def Enviar_mensaje(mensaje, bot_token, chat_id):
 
 # Inicio del programa
 # ===================
+load_dotenv()
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHAT_ID = os.environ.get('CHAT_ID')
 API_KEY = os.environ.get('API_KEY')
@@ -39,5 +41,6 @@ now = datetime.utcnow()
 
 resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
 status = Enviar_mensaje(resultados, BOT_TOKEN, CHAT_ID)
+
 
 
