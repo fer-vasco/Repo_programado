@@ -25,4 +25,11 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run Python script
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        API_KEY: ${{ secrets.API_KEY }}
+      run: python your_script.py
+      
+    - name: Run Python script
       run: python Monitor_de_stocks_v03.py
