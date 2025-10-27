@@ -22,8 +22,7 @@ jobs:
     - name: Install dependencies (if needed)
       run: |
         python -m pip install --upgrade pip
-        # If you have a requirements.txt file, uncomment the next line:
-        # pip install -r requirements.txt
+        pip install -r requirements.txt
     
     - name: Run Python script
       run: python Monitor_de_stocks.py
