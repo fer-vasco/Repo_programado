@@ -25,4 +25,4 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run Python script
-      run: python Monitor_de_stocks.py
+      run: python Monitor_de_stocks_v02.py
