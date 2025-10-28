@@ -25,6 +25,12 @@ def Enviar_mensaje(mensaje, bot_token, chat_id):
     return response.status_code
 
 
+def Leer_txt(nombre_txt):
+    with open(nombre_txt, 'r') as file:
+    content = file.read()
+    return content
+    
+
 
 
 # Inicio del programa
@@ -33,14 +39,15 @@ load_dotenv()
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHAT_ID = os.environ.get('CHAT_ID')
 API_KEY = os.environ.get('API_KEY')
-
+content = Leer_txt('datos.txt')
 
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.utcnow()
 
-resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
-status = Enviar_mensaje(resultados, BOT_TOKEN, CHAT_ID)
+resultados = content + '\n' + consultar_valores_actuales(API_KEY, cryptos, url_template, now)
+status = Enviar_mensaje(resultados, BOT_TOKEN, CHAT_ID, content)
+
 
 
 
