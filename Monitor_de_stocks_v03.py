@@ -27,7 +27,8 @@ def Enviar_mensaje(mensaje, bot_token, chat_id):
 
 def Leer_txt(nombre_txt):
     with open(nombre_txt, 'r') as file:
-    content = file.read()
+        content = file.read()
+        
     return content
     
 
@@ -47,6 +48,7 @@ now = datetime.utcnow()
 
 resultados = content + '\n' + consultar_valores_actuales(API_KEY, cryptos, url_template, now)
 status = Enviar_mensaje(resultados, BOT_TOKEN, CHAT_ID, content)
+
 
 
 
