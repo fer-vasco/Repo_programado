@@ -47,7 +47,8 @@ url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KE
 now = datetime.utcnow()
 
 resultados = content + '\n' + consultar_valores_actuales(API_KEY, cryptos, url_template, now)
-status = Enviar_mensaje(resultados, BOT_TOKEN, CHAT_ID, content)
+status = Enviar_mensaje(resultados, BOT_TOKEN, CHAT_ID)
+
 
 
 
