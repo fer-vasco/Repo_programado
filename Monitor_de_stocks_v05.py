@@ -60,6 +60,7 @@ content = Leer_txt('datos.txt')
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.now(UTC)
+now = now.replace(tzinfo=None)
 
 resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
 df_precios = pd.read_excel('precios.xlsx')
@@ -74,3 +75,4 @@ for _, row in resultados.iterrows():
     
 
 status = Enviar_mensaje(mensaje, BOT_TOKEN, CHAT_ID)
+
