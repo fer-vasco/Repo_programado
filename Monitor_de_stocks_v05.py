@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 import os
 from dotenv import load_dotenv
 
@@ -59,7 +59,7 @@ content = Leer_txt('datos.txt')
 
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
-now = datetime.utcnow()
+now = datetime.now(UTC)
 
 resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
 df_precios = pd.read_excel('precios.xlsx')
@@ -72,4 +72,5 @@ for _, row in resultados.iterrows():
     var_precio, var_hora = Comparar_precio(df_precios, moneda, hora, precio)
     mensaje = mensaje + f'{moneda} varió {var_precio}% en los últimos {var_hora} mins.' + '\n'
     
+
 status = Enviar_mensaje(mensaje, BOT_TOKEN, CHAT_ID)
