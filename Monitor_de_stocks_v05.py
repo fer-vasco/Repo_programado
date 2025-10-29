@@ -51,21 +51,24 @@ def Comparar_precio(df_precios, moneda, hora_actual, precio_actual):
 # Inicio del programa
 # ===================
 
+# Cargo variables secretas de entorno
 load_dotenv()
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHAT_ID = os.environ.get('CHAT_ID')
 API_KEY = os.environ.get('API_KEY')
-content = Leer_txt('datos.txt')
 
+# Defino constantes para consultar precios en línea
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.now(UTC)
 now = now.replace(tzinfo=None)
-
 resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
+
+# Cargo valores guardados para comparar con los actuales
 df_precios = pd.read_excel('precios.xlsx')
 mensaje = ''
 
+# Comparo cada valor actual y genero alertas
 for _, row in resultados.iterrows():
     moneda = row['symbol']
     precio =row['price']
@@ -73,6 +76,7 @@ for _, row in resultados.iterrows():
     var_precio, var_hora = Comparar_precio(df_precios, moneda, hora, precio)
     mensaje = mensaje + f'{moneda} varió {var_precio}% en los últimos {var_hora} mins.' + '\n'
     
-
+# Envío alertas
 status = Enviar_mensaje(mensaje, BOT_TOKEN, CHAT_ID)
+
 
