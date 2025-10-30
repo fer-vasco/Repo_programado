@@ -153,10 +153,10 @@ cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.now(UTC)
 now = now.replace(tzinfo=None)
-resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
+resultados = consultar_valores_actuales(API_KEY, monedas, url_template, now)
 
 # Cargo valores guardados, concateno los nuevos y guardo
-df_precios = pd.read_excel('precios_cripto.xlsx')
+df_precios = pd.read_excel('precios.xlsx')
 df_concat = pd.concat([df_precios, resultados])
 df_concat.to_excel('precios_cripto.xlsx', index=False)
 
@@ -168,4 +168,5 @@ alertas = Generar_alertas(df_procesado, 0.01)
 
 # Envío alertas
 for alerta in alertas:
+
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
