@@ -164,9 +164,10 @@ df_concat.to_excel('precios_cripto.xlsx', index=False)
 df_procesado = Procesar_dfs(df_concat)
 
 # Genero alertas
-alertas = Generar_alertas(df_procesado, 0.01)
+alertas = Generar_alertas(df_procesado, 2)
 
 # Envío alertas
 for alerta in alertas:
 
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
