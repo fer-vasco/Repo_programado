@@ -145,7 +145,7 @@ def Revisar_mercado(api_key):
         data = response.json()
         is_open = data.get('isTheStockMarketOpen', False)
         is_crypto_open = data.get('isTheCryptoMarketOpen', False)        
-        return is_open
+        return is_crypto_open
         
     except Exception as e:
         print(f"Unexpected error: {e}")
@@ -176,7 +176,7 @@ cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.now(UTC)
 now = now.replace(tzinfo=None)
-resultados = consultar_valores_actuales(API_KEY, monedas, url_template, now)
+resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
 
 # Cargo valores guardados, concateno los nuevos y guardo
 df_precios = pd.read_excel('precios-2.xlsx')
@@ -191,6 +191,7 @@ alertas = Generar_alertas(df_procesado, 2)
 
 for alerta in alertas:
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
 
 
 
