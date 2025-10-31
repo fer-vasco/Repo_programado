@@ -31,7 +31,7 @@ jobs:
         BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         CHAT_ID: ${{ secrets.CHAT_ID }}
         API_KEY: ${{ secrets.API_KEY }}
-      run: python Monitor_de_stocks_v06.py
+      run: python Monitor_de_stocks_v07.py
 
     - name: Commit and push changes
       run: |
