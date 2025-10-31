@@ -156,9 +156,9 @@ now = now.replace(tzinfo=None)
 resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
 
 # Cargo valores guardados, concateno los nuevos y guardo
-df_precios = pd.read_excel('precios_cripto_2.xlsx')
+df_precios = pd.read_excel('precios-2.xlsx')
 df_concat = pd.concat([df_precios, resultados])
-df_concat.to_excel('precios_cripto_2.xlsx', index=False)
+df_concat.to_excel('precios-2.xlsx', index=False)
 
 # Calculo indicadores
 df_procesado = Procesar_dfs(df_concat)
@@ -170,5 +170,6 @@ alertas = Generar_alertas(df_procesado, 2)
 for alerta in alertas:
 
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
 
 
