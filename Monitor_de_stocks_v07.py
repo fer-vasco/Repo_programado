@@ -171,7 +171,7 @@ if mercado_abierto == False:
 
 
 # Defino constantes para consultar precios en línea
-monedas = ['FLS', 'TER', 'STX', 'MIR', 'BE']
+monedas = ['FLS', 'TER', 'STX', 'MIR', 'GH']
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.now(UTC)
@@ -191,6 +191,7 @@ alertas = Generar_alertas(df_procesado, 2)
 
 for alerta in alertas:
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
 
 
 
