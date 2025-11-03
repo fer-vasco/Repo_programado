@@ -176,7 +176,7 @@ cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
 now = datetime.now(UTC)
 now = now.replace(tzinfo=None)
-resultados = consultar_valores_actuales(API_KEY, cryptos, url_template, now)
+resultados = consultar_valores_actuales(API_KEY, monedas, url_template, now)
 
 # Cargo valores guardados, concateno los nuevos y guardo
 df_precios = pd.read_excel('precios-2.xlsx')
