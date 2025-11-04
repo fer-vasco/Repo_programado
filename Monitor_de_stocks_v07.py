@@ -145,7 +145,7 @@ def Revisar_mercado(api_key):
         data = response.json()
         is_open = data.get('isTheStockMarketOpen', False)
         is_crypto_open = data.get('isTheCryptoMarketOpen', False)        
-        return is_crypto_open
+        return is_open
         
     except Exception as e:
         print(f"Unexpected error: {e}")
