@@ -158,10 +158,15 @@ def Revisar_mercado(api_key):
 
 # Cargo variables secretas de entorno
 load_dotenv()
-BOT_TOKEN = os.environ.get('BOT_TOKEN')
-CHAT_ID = os.environ.get('CHAT_ID')
-API_KEY = os.environ.get('API_KEY')
-FMP_API_KEY = os.environ.get('FMP_API_KEY')
+# BOT_TOKEN = os.environ.get('BOT_TOKEN')
+# CHAT_ID = os.environ.get('CHAT_ID')
+# API_KEY = os.environ.get('API_KEY')
+# FMP_API_KEY = os.environ.get('FMP_API_KEY')
+
+API_KEY = 'ctas84hr01qgsps7rkhgctas84hr01qgsps7rki0'
+BOT_TOKEN = '8440738820:AAEctzmHPPg9fvCdP2jrxLJATk3I5bfgT-8'
+CHAT_ID = '7564739690'
+FMP_API_KEY = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
 
 print(BOT_TOKEN, CHAT_ID, API_KEY, FMP_API_KEY)
 
@@ -193,6 +198,7 @@ alertas = Generar_alertas(df_procesado, 2)
 
 for alerta in alertas:
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
 
 
 
