@@ -191,10 +191,11 @@ df_concat = Cargar_base_de_datos()
 # Calculo indicadores
 df_procesado = Procesar_dfs(df_concat)
 print(f'df procesado:')
-print(df_procesado.head(3), '\n')
+print(df_procesado.tail(3), '\n')
 
 # Genero alertas y envío
 alertas = Generar_alertas(df_procesado, 2)
 
 for alerta in alertas:
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
