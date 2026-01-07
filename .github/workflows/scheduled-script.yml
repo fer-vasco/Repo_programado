@@ -32,12 +32,13 @@ jobs:
         CHAT_ID: ${{ secrets.CHAT_ID }}
         API_KEY: ${{ secrets.API_KEY }}
         FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
-      run: python Monitor_de_stocks_v09.py
+      run: python Monitor_de_stocks_v10.py
 
     - name: Commit and push changes
       run: |
         git config --global user.name 'fer-vasco[bot]'
         git config --global user.email 'fer-vasco[bot]@users.noreply.github.com'
-        git add data/precios_SQL.db
-        git commit -m "Auto-update data/precios_SQL.db" || echo "No changes to commit"
+        git add data/precios_SQL.db data/precios_procesados_SQL.db
+        git commit -m "Auto-update DB files" || echo "No changes to commit"
         git push || echo "Nothing to push"
+
