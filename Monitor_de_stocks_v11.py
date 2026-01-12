@@ -408,7 +408,7 @@ API_KEY = os.environ.get('API_KEY')
 FMP_API_KEY = os.environ.get('FMP_API_KEY')
 
 
-Reviso si el mercado está abierto. Si no, no hago nada
+# Reviso si el mercado está abierto. Si no, no hago nada
 mercado_abierto = Revisar_mercado(FMP_API_KEY, 'NASDAQ')
 if mercado_abierto == False:
     print('Mercado cerrado. Terminando el programad.')
