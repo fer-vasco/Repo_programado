@@ -408,11 +408,11 @@ API_KEY = os.environ.get('API_KEY')
 FMP_API_KEY = os.environ.get('FMP_API_KEY')
 
 
-# Reviso si el mercado está abierto. Si no, no hago nada
-# mercado_abierto = Revisar_mercado(FMP_API_KEY, 'NASDAQ')
-# if mercado_abierto == False:
-    # print('Mercado cerrado. Terminando el programad.')
-    # exit()
+Reviso si el mercado está abierto. Si no, no hago nada
+mercado_abierto = Revisar_mercado(FMP_API_KEY, 'NASDAQ')
+if mercado_abierto == False:
+    print('Mercado cerrado. Terminando el programad.')
+    exit()
 
 
 # Defino constantes para consultar precios en línea
@@ -447,3 +447,4 @@ alertas = Generar_alertas(df_procesado, 2)
 Enviar_mensaje(resultado_final, BOT_TOKEN, CHAT_ID)
 for alerta in alertas:
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
