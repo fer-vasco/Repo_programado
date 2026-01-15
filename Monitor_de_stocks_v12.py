@@ -522,13 +522,13 @@ CHAT_ID = os.environ.get('CHAT_ID')
 API_KEY = os.environ.get('API_KEY')
 FMP_API_KEY = os.environ.get('FMP_API_KEY')
 
-'''
+
 # Reviso si el mercado está abierto. Si no, no hago nada
 mercado_abierto = Revisar_mercado(FMP_API_KEY, 'NASDAQ')
 if mercado_abierto == False:
     print('Mercado cerrado. Terminando el programa.')
     exit()
-'''
+
 
 # Defino constantes para consultar precios en línea
 monedas = ['FLS', 'TER', 'STX', 'MIR', 'GH', 'FORM', 'CAH', 'INSM', 'CHRW', 'CNCK', 'ZETA', 'SGML', 'UXIN', 'CPNG', 'RZLV', 'FRMI', 'TLRY']
@@ -575,3 +575,4 @@ Enviar_mensaje(desempeño_separado, BOT_TOKEN, CHAT_ID)
 for alerta in alertas:
 
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
