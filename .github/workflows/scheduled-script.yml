@@ -32,7 +32,7 @@ jobs:
         CHAT_ID: ${{ secrets.CHAT_ID }}
         API_KEY: ${{ secrets.API_KEY }}
         FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
-      run: python Monitor_de_stocks_v11.py
+      run: python Monitor_de_stocks_v12.py
 
     - name: Commit and push changes
       run: |
