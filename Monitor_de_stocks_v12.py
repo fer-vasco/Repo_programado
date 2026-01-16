@@ -531,9 +531,7 @@ if mercado_abierto == False:
 
 
 # Defino constantes para consultar precios en línea
-monedas = ['FLS', 'TER', 'STX', 'MIR', 'GH', 'FORM', 'CAH', 'INSM', 'CHRW', 'CNCK', 'ZETA', 'SGML', 'UXIN', 'CPNG', 'RZLV', 'FRMI', 'TLRY']
-# Buscar en 'Gainers_200M_NYSE_&_NASDAQ'
-monedas = ['FLS', 'TER', 'STX', 'MIR', 'GH', 'FORM', 'CAH', 'INSM', 'CHRW', 'CNCK', 'ZETA', 'SGML', 'UXIN', 'CPNG', 'RZLV', 'FRMI', 'TLRY', 'VISN', 'ANPA', 'CRML', 'ALT5', 'AHMA', 'AMN', 'WSHP', 'SLV', 'GLD']
+monedas = ['FLS', 'TER', 'STX', 'MIR', 'GH', 'FORM', 'CAH', 'INSM', 'CHRW', 'CNCK', 'ZETA', 'SGML', 'UXIN', 'CPNG', 'RZLV', 'FRMI', 'TLRY', 'VISN', 'ANPA', 'CRML', 'ALT5', 'AHMA', 'AMN', 'WSHP', 'SLV', 'GLD', 'IBRX' 'RILY', 'JELD', 'BNR', 'AXTI', 'ERAS', 'IPSC', 'GLXY']
 
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
 url_template = "https://finnhub.io/api/v1/quote?symbol={symbol}&token=" + API_KEY
@@ -575,4 +573,5 @@ Enviar_mensaje(desempeño_separado, BOT_TOKEN, CHAT_ID)
 for alerta in alertas:
 
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
+
 
