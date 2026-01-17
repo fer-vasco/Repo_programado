@@ -515,13 +515,13 @@ CHAT_ID = os.environ.get('CHAT_ID')
 API_KEY = os.environ.get('API_KEY')
 FMP_API_KEY = os.environ.get('FMP_API_KEY')
 
-'''
+
 # Reviso si el mercado está abierto. Si no, no hago nada
 mercado_abierto = Revisar_mercado(FMP_API_KEY, 'NASDAQ')
 if mercado_abierto == False:
     print('Mercado cerrado. Terminando el programa.')
     exit()
-'''
+
 
 monedas = [
 'FLS', 'TER', 'STX', 'MIR', 'GH', 
@@ -565,4 +565,5 @@ mensaje = Ejecutar_estrategias(df_procesado, Estrategia_02, umbral_compra, take_
 Enviar_mensaje(mensaje, BOT_TOKEN, CHAT_ID)
 alertas = Generar_alertas(df_procesado, 3)
 for alerta in alertas:
+
     Enviar_mensaje(alerta, BOT_TOKEN, CHAT_ID)
