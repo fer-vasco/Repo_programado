@@ -531,7 +531,7 @@ monedas = [
 'ALT5', 'AHMA', 'AMN', 'WSHP', 'SLV', 
 'GLD', 'IBRX' 'RILY', 'JELD', 'BNR', 
 'AXTI', 'ERAS', 'IPSC', 'GLXY', 'NEOV'
-'TYGO', 'CTMX']
+'TYGO', 'CTMX', 'NUAI']
 
 
 cryptos = ["BINANCE:BTCUSDT", "BINANCE:ETHUSDT", "BINANCE:SOLUSDT"]
